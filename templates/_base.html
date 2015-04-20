@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{ page_title }}</title>
+
+    <!--
+    <meta name="description" content="description">
+    <meta name="author" content="DevOOPS">
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto:400italic,100,700italic,700,400|Roboto+Slab|Ubuntu+Mono" rel="stylesheet" type="text/css">
+    <link href='//fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+
+    {% block css %}
+    {% endblock %}
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="//getbootstrap.com/docs-assets/js/html5shiv.js"></script>
+            <script src="//getbootstrap.com/docs-assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row" id="header">
+            <div class="col-xs-12">
+                <h1>Rust Compare</h1>
+                <p>A comparison of code in Rust, C++, and Java.</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div id="main" class="container-fluid">
+	<div class="row">
+		<div id="sidebar-left" class="col-xs-2">
+			<ul class="nav main-menu">
+                <li><a href="">Test</a></li>
+            </ul>
+		</div>
+		<!--Start Content-->
+		<div id="content" class="col-xs-10">
+            main content
+            {% block content %}
+            {% endblock %}
+		</div>
+		<!--End Content-->
+	</div>
+</div>
+
+</body>
+</html>
