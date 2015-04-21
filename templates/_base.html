@@ -15,6 +15,7 @@
     <link href="//fonts.googleapis.com/css?family=Roboto:400italic,100,700italic,700,400|Roboto+Slab|Ubuntu+Mono" rel="stylesheet" type="text/css">
     <link href='//fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
 
+    <link href="{{ url_for('static', filename='prism.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
 
     {% block css %}
@@ -47,13 +48,14 @@
 		</div>
 		<!--Start Content-->
 		<div id="content" class="col-xs-10">
-            main content
             {% block content %}
             {% endblock %}
 		</div>
 		<!--End Content-->
 	</div>
 </div>
+
+<script src="{{ url_for('static', filename='prism.js') }}"></script>
 
 </body>
 </html>

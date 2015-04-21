@@ -1,10 +1,56 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "_base.html" %}
 
-</body>
-</html>
+{% block content %}
+<div class="row">
+    <div class="col-xs-12">
+        <h2>Vectors</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">Rust</div>
+    <div class="col-xs-4">C++</div>
+    <div class="col-xs-4">Java</div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4">
+<pre class="line-numbers">
+<code class="language-rust">
+fun main(argc int32) -> int32 {
+    // comment test
+    if(this->thing == this->other) {
+        printf("Test");
+    }
+}
+</code>
+</pre>
+    </div>
+
+    <div class="col-xs-4">
+<pre class="line-numbers">
+<code class="language-cpp">
+int void main(int argc, char **argv) {
+    // comment test
+    if(this->thing == this->other) {
+        printf("Test");
+    }
+}
+</code>
+</pre>
+    </div>
+
+    <div class="col-xs-4">
+<pre class="line-numbers">
+<code class="language-java">
+public static void main(String[] args) {
+    // comment test
+    if(this.thing == this.other) {
+        System.out.println("Test");
+    }
+}
+</code>
+</pre>
+    </div>
+</div>
+{% endblock %}
