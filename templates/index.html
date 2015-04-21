@@ -4,17 +4,18 @@
 <div class="row">
     <div class="col-xs-12">
         <h2>Vectors</h2>
+        <h4>Vectors are contiguous blocks of memory that can be randomly accessed.</h4>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-xs-4">Rust</div>
-    <div class="col-xs-4">C++</div>
-    <div class="col-xs-4">Java</div>
+    <div class="col-xs-12 col-md-4"><h3>Rust</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>C++</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>Java</h3></div>
 </div>
 
 <div class="row">
-    <div class="col-xs-4">
+    <div class="col-xs-12 col-md-4">
 <pre class="line-numbers">
 <code class="language-rust">
 fun main(argc int32) -> int32 {
@@ -27,7 +28,7 @@ fun main(argc int32) -> int32 {
 </pre>
     </div>
 
-    <div class="col-xs-4">
+    <div class="col-xs-12 col-md-4">
 <pre class="line-numbers">
 <code class="language-cpp">
 int void main(int argc, char **argv) {
@@ -40,7 +41,7 @@ int void main(int argc, char **argv) {
 </pre>
     </div>
 
-    <div class="col-xs-4">
+    <div class="col-xs-12 col-md-4">
 <pre class="line-numbers">
 <code class="language-java">
 public static void main(String[] args) {
@@ -49,8 +50,21 @@ public static void main(String[] args) {
         System.out.println("Test");
     }
 }
+
+public static void main(String[] args) {
+    // comment test
+    if(this.thing == this.other) {
+        System.out.println("Test");
+    }
+}
 </code>
 </pre>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+        <p>This is some text explaining the whole thing...</p>
     </div>
 </div>
 {% endblock %}
