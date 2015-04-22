@@ -1,5 +1,6 @@
 #[allow(unused_variables)]
 fn main() {
+// BEGIN_CODE
 	// unsigned values
 	let a: u8;
 	let b: u16;
@@ -19,4 +20,5 @@ fn main() {
 	// floating point values
 	let k: f32;
 	let l: f64;
+// END_CODE
 }

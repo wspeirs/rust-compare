@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Primitives</title>
+
+    <meta name="description" content="A comparison of Rust to C++ and Java">
+    <meta name="author" content="William Speirs">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400italic,100,700italic,700,400|Roboto+Slab|Ubuntu+Mono" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+
+    <link href="static/prism.css" rel="stylesheet">
+    <link href="static/style.css" rel="stylesheet">
+
+    
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
+            <script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<header>
+    <div class="container">
+        <div class="row" id="header">
+            <div class="col-xs-12">
+                <h1>Rust Compare</h1>
+                <h4>A comparison of code in Rust, C++, and Java.</h4>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div id="main" class="container-fluid">
+	<div class="row">
+		<div id="sidebar-left" class="col-xs-1">
+			<ul class="nav main-menu">
+                
+                    
+                    <li><strong>Data Types</strong></li>
+                    
+                
+                    
+                    <li><a href="{'cpp': 'primitives.cpp', 'java': 'Primitives.java', 'rust': 'primitives.rs', 'template': 'primitives.html'}">Primitives</a></li>
+                    
+                
+                    
+                    <li><a href="{}">Classes and Structs</a></li>
+                    
+                
+                    
+                    <li><a href="{}">Interfaces</a></li>
+                    
+                
+                    
+                    <li><a href="{}">Enums</a></li>
+                    
+                
+                    
+                    <li><a href="{}">Generics</a></li>
+                    
+                
+                    
+                    <li><strong>Functions</strong></li>
+                    
+                
+                    
+                    <li><a href="{}">Parameters</a></li>
+                    
+                
+                    
+                    <li><a href="{}">Methods</a></li>
+                    
+                
+                    
+                    <li><a href="{}">Lambdas & Closures</a></li>
+                    
+                
+                    
+                    <li><a href="{}">Generics</a></li>
+                    
+                
+                    
+                    <li><strong>Control Flow</strong></li>
+                    
+                
+                    
+                    <li><a href="{}">Branches</a></li>
+                    
+                
+                    
+                    <li><a href="{}">Loops</a></li>
+                    
+                
+                    
+                    <li><a href="{}">Exceptions</a></li>
+                    
+                
+                    
+                    <li><strong>Memory Management</strong></li>
+                    
+                
+                    
+                    <li><a href="{}">Stack</a></li>
+                    
+                
+                    
+                    <li><a href="{}">Heap</a></li>
+                    
+                
+                    
+                    <li><a href="{}">Aliasing</a></li>
+                    
+                
+                    
+                    <li><strong>Containers & Algorithms</strong></li>
+                    
+                
+                    
+                    <li><a href="{}">Vector/Array & List</a></li>
+                    
+                
+                    
+                    <li><a href="{}">Set & Map</a></li>
+                    
+                
+            </ul>
+		</div>
+		<!--Start Content-->
+		<div id="content" class="col-xs-11">
+            
+<div class="row">
+    <div class="col-xs-12">
+        <h2></h2>
+        <h4>
+            
+These are the basic primitive data types found in each language.
+
+        </h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-4"><h3>C++</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>Rust</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>Java</h3></div>
+</div>
+
+
+<div class="row">
+    <!-- CPP Code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-cpp">
+// unsigned values
+unsigned char a;
+unsigned short b;
+unsigned int c;
+unsigned long d;
+unsigned long long e;
+
+// Boolean values
+bool f;
+
+// signed values
+char g;
+short h;
+int i;
+long j;
+long long k;
+
+// floating point values
+float l;
+double m;
+
+return 0;
+</code>
+</pre>
+    </div>
+
+    <!-- Rust code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-rust">
+// unsigned values
+let a: u8;
+let b: u16;
+let c: u32;
+let d: u64;
+
+// Boolean values
+let e: bool;
+
+// signed values
+let f: char;
+let g: i8;
+let h: i16;
+let i: i32;
+let j: i64;
+
+// floating point values
+let k: f32;
+let l: f64;
+</code>
+</pre>
+    </div>
+
+    <!-- Java code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-java">
+// Java does not have unsigned values
+
+// Boolean values
+boolean a;
+
+// signed values
+byte b;
+char c;
+short d;
+int e;
+long f;
+
+// floating point values
+float g;
+double h;
+</code>
+</pre>
+    </div>
+</div>
+<br/><br/>
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 well">
+        <p>
+            
+While these are the basic primitive types, you can find special types in <code>C++</code>
+that use architecture information to ensure a variable is of a certain size. <code>uint_32</code>
+for example will ensure that 32 bits are used to store the value and the value is treated as unsigned.
+</p><p>
+Rust has the opposite and includes <code>usize</code> and <code>isize</code> to provide a variable
+that is equal to the address space of the target architecture.
+
+        </p>
+    </div>
+</div>
+
+		</div>
+		<!--End Content-->
+	</div>
+</div>
+
+<script src="static/prism.js"></script>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
-
 public class Primitives {
 	public static void main(String[] args) {
+// BEGIN_CODE
 		// Java does not have unsigned values
 
 		// Boolean values
@@ -16,5 +16,6 @@ public class Primitives {
 		// floating point values
 		float g;
 		double h;
+// END_CODE
 	}
 }

@@ -1,6 +1,6 @@
 #define unused __attribute ((unused))
-
 int main(unused int argc, unused char **argv) {
+// BEGIN_CODE
     // unsigned values
     unsigned char a;
     unsigned short b;
@@ -23,4 +23,5 @@ int main(unused int argc, unused char **argv) {
     double m;
 
     return 0;
+// END_CODE
 }

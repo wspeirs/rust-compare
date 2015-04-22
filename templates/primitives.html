@@ -1,0 +1,15 @@
+{% extends "_page.html" %}
+
+{% block intro %}
+These are the basic primitive data types found in each language.
+{% endblock %}
+
+{% block description %}
+While these are the basic primitive types, you can find special types in <code>C++</code>
+that use architecture information to ensure a variable is of a certain size. <code>uint_32</code>
+for example will ensure that 32 bits are used to store the value and the value is treated as unsigned.
+</p><p>
+Rust has the opposite and includes <code>usize</code> and <code>isize</code> to provide a variable
+that is equal to the address space of the target architecture.
+{% endblock %}
+

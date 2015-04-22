@@ -1,0 +1,55 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12">
+        <h2>{{ name }}</h2>
+        <h4>
+            {% block intro %}
+            {% endblock %}
+        </h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-md-4"><h3>C++</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>Rust</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>Java</h3></div>
+</div>
+
+
+<div class="row">
+    <!-- CPP Code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-cpp">
+{% for line in cpp_code %}{{line}}{% endfor %}</code>
+</pre>
+    </div>
+
+    <!-- Rust code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-rust">
+{% for line in rust_code %}{{line}}{% endfor %}</code>
+</pre>
+    </div>
+
+    <!-- Java code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-java">
+{% for line in java_code %}{{line}}{% endfor %}</code>
+</pre>
+    </div>
+</div>
+<br/><br/>
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 well">
+        <p>
+            {% block description %}
+            {% endblock %}
+        </p>
+    </div>
+</div>
+{% endblock %}
