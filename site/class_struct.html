@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Primitives</title>
+    <title>Classes and Structs</title>
 
     <meta name="description" content="A comparison of Rust to C++ and Java">
     <meta name="author" content="William Speirs">
@@ -138,10 +138,10 @@
             
 <div class="row">
     <div class="col-xs-12">
-        <h2>Primitives</h2>
+        <h2>Classes and Structs</h2>
         <h4>
             
-These are the basic primitive data types found in each language.
+Representations of complex data types with methods that operate on them.
 
         </h4>
     </div>
@@ -159,28 +159,22 @@ These are the basic primitive data types found in each language.
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-cpp">
-// unsigned values
-unsigned char a;
-unsigned short b;
-unsigned int c;
-unsigned long d;
-unsigned long long e;
+class MyClass {
+private:
+  const int my_field;
 
-// Boolean values
-bool f;
+public:
+  // constructor
+  MyClass(const int &field) : my_field(filed) { }
 
-// signed values
-char g;
-short h;
-int i;
-long j;
-long long k;
+  // destructor
+  ~MyClass() { }
 
-// floating point values
-float l;
-double m;
-
-return 0;
+  // friend functions
+  ostream& operator<<(ostream &out, const MyClass &my_class) {
+    out << my_field;
+  }
+}
 </code>
 </pre>
     </div>
@@ -189,25 +183,20 @@ return 0;
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-rust">
-// unsigned values
-let a: u8;
-let b: u16;
-let c: u32;
-let d: u64;
+struct MyClass {
+  my_field: int
+}
 
-// Boolean values
-let e: bool;
+impl MyClass {
+  // constructor, by convention
+  pub fn new(field: int) -> MyClass {
+    MyClass { my_field: field }
+  }
 
-// signed values
-let f: char;
-let g: i8;
-let h: i16;
-let i: i32;
-let j: i64;
-
-// floating point values
-let k: f32;
-let l: f64;
+  // destructor
+  pub fn drop(&self) {
+  }
+}
 </code>
 </pre>
     </div>
@@ -216,21 +205,19 @@ let l: f64;
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-java">
-// Java does not have unsigned values
+public class MyClass {
+  private final int myField;
 
-// Boolean values
-boolean a;
+  // constructor
+  public MyClass(final int field) {
+    this.myField = field;
+  }
 
-// signed values
-byte b;
-char c;
-short d;
-int e;
-long f;
+  // destructor
+  finally { }
 
-// floating point values
-float g;
-double h;
+  // Java doesn't have friend functions
+}
 </code>
 </pre>
     </div>
@@ -240,12 +227,8 @@ double h;
     <div class="col-xs-10 col-xs-offset-1 well">
         <p>
             
-While these are the basic primitive types, you can find special types in <code>C++</code>
-that use architecture information to ensure a variable is of a certain size. <code>uint_32</code>
-for example will ensure that 32 bits are used to store the value and the value is treated as unsigned.
-</p><p>
-Rust has the opposite and includes <code>usize</code> and <code>isize</code> to provide a variable
-that is equal to the address space of the target architecture.
+C++ and Java classes (or structs for C++) are both fairly similar. Rust is quite different though.
+A struct defines the fields, and an implementation defines the methods for the struct.
 
         </p>
     </div>

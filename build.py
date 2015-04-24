@@ -2,6 +2,7 @@ from jinja2 import Environment, FileSystemLoader
 from side_menu import MENU_ITEMS
 import re
 
+
 def read_code(file_name):
     ret = []
     add_line = False
@@ -28,19 +29,43 @@ def read_code(file_name):
 
     return ret
 
+
 env = Environment(loader=FileSystemLoader('templates'))
 
+# go through and "fix-up" MENU_ITEMS
 for item in MENU_ITEMS:
     if 'name' not in item:
         print "Error couldn't find name in item: %s" % str(item)
+        # remove item
 
-    if 'page' not in item or item['page'] is None:
+    if 'page' not in item:
+        print "Error, no page found in item: %s" % str(item)
+        # remove item
+        continue
+
+    if item['page'] is None:
         continue
 
     page = item['page']
 
     if 'template' not in page:
         print "Warning, couldn't find template for %s skipping..." % item['name']
+        page['template'] = 'not_found.html'
+        continue
+
+# make the not-found page
+template = env.get_template('not_found.html')
+
+with open('site/not_found.html', 'w') as f:
+    f.writelines(template.render(page_title='Not Found', menu_items=MENU_ITEMS))
+
+for item in MENU_ITEMS:
+    if item['page'] is None:
+        continue
+
+    page = item['page']
+
+    if page['template'] == 'not_found.html':
         continue
 
     template = env.get_template(page['template'])

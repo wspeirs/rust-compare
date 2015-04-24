@@ -46,7 +46,7 @@
                     {% if item.page is none %}
                     <li><strong>{{item.name}}</strong></li>
                     {% else %}
-                    <li><a href="{{item.page}}">{{item.name}}</a></li>
+                    <li><a href="{{item.page.template}}">{{item.name}}</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
