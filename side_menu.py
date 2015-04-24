@@ -15,7 +15,7 @@ MENU_ITEMS = [
 
     {'name': 'Control Flow', 'page': None},
     {'name': 'Branches', 'page': {}},
-    {'name': 'Loops', 'page': {}},
+    {'name': 'Loops', 'page': {'template': 'loops.html', 'cpp': 'loops.cpp', 'rust': 'loops.rs', 'java': 'Loops.java'}},
     {'name': 'Exceptions', 'page': {}},
 
     {'name': 'Memory Management', 'page': None},

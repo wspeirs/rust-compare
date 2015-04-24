@@ -31,16 +31,17 @@ def read_code(file_name):
 
 
 env = Environment(loader=FileSystemLoader('templates'))
+env.autoescape = True
 
 # go through and "fix-up" MENU_ITEMS
-for item in MENU_ITEMS:
+for item in list(MENU_ITEMS):
     if 'name' not in item:
         print "Error couldn't find name in item: %s" % str(item)
-        # remove item
+        MENU_ITEMS.remove(item)
 
     if 'page' not in item:
         print "Error, no page found in item: %s" % str(item)
-        # remove item
+        MENU_ITEMS.remove(item)
         continue
 
     if item['page'] is None:

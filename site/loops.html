@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Not Found</title>
+    <title>Loops</title>
 
     <meta name="description" content="A comparison of Rust to C++ and Java">
     <meta name="author" content="William Speirs">
@@ -138,18 +138,123 @@
             
 <div class="row">
     <div class="col-xs-12">
-        <h2>404 Not Found</h2>
-        <h4>This page was not found. This is probably because the code has not been written yet.
-            If you had expected to see a page here, make sure you've added it to the side_menu.py file.</h4>
+        <h2>Loops</h2>
+        <h4>
+            
+Loops in the three languages.
+
+        </h4>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-xs-12">
-        <h4>Example entry:</h4>
-        <pre>{'name': 'Primitives', 'page': {'template': 'primitives.html', 'cpp': 'primitives.cpp', 'rust': 'primitives.rs', 'java': 'Primitives.java'}},</pre>
+    <div class="col-xs-12 col-md-4"><h3>C++</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>Rust</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>Java</h3></div>
+</div>
+
+
+<div class="row">
+    <!-- CPP Code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-cpp">
+const int items_size = 3;
+const int items[items_size] = {1, 2, 3};
+
+for(int i=0; i&lt;items_size; ++i)
+  cout &lt;&lt; items[i] &lt;&lt; endl;
+
+for(int i:items)
+  cout &lt;&lt; i &lt;&lt; endl;
+
+int i=0;
+
+while(true)
+{
+  cout &lt;&lt; items[i] &lt;&lt; endl;
+
+  if(++i == items_size)
+    break;
+}
+
+i=0;
+do {
+  cout &lt;&lt; items[i] &lt;&lt; endl;
+  ++i;
+} while(i&lt;items_size);
+</code>
+</pre>
     </div>
 
+    <!-- Rust code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-rust">
+let items = [1, 2, 3];
+
+for i in 0..items.len() {
+  println!(items[i]);
+}
+
+for i in items {
+  println(i);
+}
+
+let i = 0;
+
+loop {
+  println(items[i]);
+
+  if(++i==items.len())
+    break;
+}
+
+// Rust does not have do-while loops
+</code>
+</pre>
+    </div>
+
+    <!-- Java code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-java">
+final int items[] = {1, 2, 3};
+
+for(int i=0; i&lt;items.length; ++i)
+  System.out.println(i);
+
+for(int i:items)
+  System.out.println(i);
+
+int i=0;
+
+while(true) {
+  System.out.println(i);
+  ++i;
+
+  if(i==items.length)
+    break;
+}
+
+i=0;
+do {
+  System.out.println(i);
+  ++i;
+} while(i&lt;items.length);
+</code>
+</pre>
+    </div>
+</div>
+<br/><br/>
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 well">
+        <p>
+            
+
+
+        </p>
+    </div>
 </div>
 
 		</div>

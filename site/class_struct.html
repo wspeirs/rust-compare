@@ -80,7 +80,7 @@
                     
                 
                     
-                    <li><a href="not_found.html">Lambdas & Closures</a></li>
+                    <li><a href="not_found.html">Lambdas &amp; Closures</a></li>
                     
                 
                     
@@ -96,7 +96,7 @@
                     
                 
                     
-                    <li><a href="not_found.html">Loops</a></li>
+                    <li><a href="loops.html">Loops</a></li>
                     
                 
                     
@@ -120,15 +120,15 @@
                     
                 
                     
-                    <li><strong>Containers & Algorithms</strong></li>
+                    <li><strong>Containers &amp; Algorithms</strong></li>
                     
                 
                     
-                    <li><a href="not_found.html">Vector/Array & List</a></li>
+                    <li><a href="not_found.html">Vector/Array &amp; List</a></li>
                     
                 
                     
-                    <li><a href="not_found.html">Set & Map</a></li>
+                    <li><a href="not_found.html">Set &amp; Map</a></li>
                     
                 
             </ul>
@@ -165,14 +165,14 @@ private:
 
 public:
   // constructor
-  MyClass(const int &field) : my_field(filed) { }
+  MyClass(const int &amp;field) : my_field(filed) { }
 
   // destructor
   ~MyClass() { }
 
   // friend functions
-  ostream& operator<<(ostream &out, const MyClass &my_class) {
-    out << my_field;
+  ostream&amp; operator&lt;&lt;(ostream &amp;out, const MyClass &amp;my_class) {
+    out &lt;&lt; my_field;
   }
 }
 </code>
@@ -189,12 +189,12 @@ struct MyClass {
 
 impl MyClass {
   // constructor, by convention
-  pub fn new(field: int) -> MyClass {
+  pub fn new(field: int) -&gt; MyClass {
     MyClass { my_field: field }
   }
 
   // destructor
-  pub fn drop(&self) {
+  pub fn drop(&amp;self) {
   }
 }
 </code>
@@ -216,7 +216,7 @@ public class MyClass {
   // destructor
   finally { }
 
-  // Java doesn't have friend functions
+  // Java doesn&#39;t have friend functions
 }
 </code>
 </pre>
