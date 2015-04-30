@@ -5,7 +5,7 @@ MENU_ITEMS = [
     {'name': 'Classes and Structs', 'page': {'template': 'class_struct.html', 'cpp': 'class_struct.cpp', 'rust': 'class_struct.rs', 'java': 'MyClass.java'}},
     {'name': 'Interfaces', 'page': {}},
     {'name': 'Enums', 'page': {}},
-    {'name': 'Generics', 'page': {}},
+    {'name': 'Generics', 'page': {'template': 'generics.html', 'cpp': 'generics.cpp', 'rust': 'generics.rs', 'java': 'Generics.java'}},
 
     {'name': 'Functions', 'page': None},
     {'name': 'Parameters', 'page': {}},

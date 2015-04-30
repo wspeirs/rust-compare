@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Classes and Structs</title>
+    <title>Generics</title>
 
     <meta name="description" content="A comparison of Rust to C++ and Java">
     <meta name="author" content="William Speirs">
@@ -138,10 +138,10 @@
             
 <div class="row">
     <div class="col-xs-12">
-        <h2>Classes and Structs</h2>
+        <h2>Generics</h2>
         <h4>
             
-Representations of complex data types with methods that operate on them.
+Generics (or templates) allow methods and classes to manipulate generic data types.
 
         </h4>
     </div>
@@ -159,21 +159,27 @@ Representations of complex data types with methods that operate on them.
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-cpp">
-class MyClass {
-private:
-  const int my_field;
-
+template&lt;typename T&gt;
+class generic_class {
+  T t;
 public:
-  // constructor
-  MyClass(const int &amp;field) : my_field(filed) { }
+  generic_class(const T &amp;t)
+    : t(t) { }
+};
 
-  // destructor
-  ~MyClass() { }
+template&lt;typename T&gt;
+T do_nothing(const T &amp;t) {
+  return t;
+}
 
-  // friend functions
-  ostream&amp; operator&lt;&lt;(ostream &amp;out, const MyClass &amp;my_class) {
-    out &lt;&lt; my_field;
-  }
+int main(int argc, char **argv) {
+  generic_class&lt;int&gt; gc_int(2);
+  generic_class&lt;float&gt; gc_float(2.3);
+
+  int r1 = do_nothing(2);
+  float r2 = do_nothing(2.3);
+
+  return 0;
 }
 </code>
 </pre>
@@ -183,19 +189,22 @@ public:
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-rust">
-struct MyClass {
-  my_field: int
+#[allow(dead_code)]
+struct GenericStruct&lt;T&gt; {
+  t: T
 }
 
-impl MyClass {
-  // constructor, by convention
-  pub fn new(field: int) -&gt; MyClass {
-    MyClass { my_field: field }
-  }
+fn do_nothing&lt;T&gt;(t: T) -&gt; T {
+  return t;
+}
 
-  // destructor
-  pub fn drop(&amp;self) {
-  }
+#[allow(unused_variables)]
+fn main() {
+  let gc_int = GenericStruct{t: 2};
+  let gc_float = GenericStruct{t: 2.3};
+
+  let r1 = do_nothing(2);
+  let r2 = do_nothing(2.3);
 }
 </code>
 </pre>
@@ -205,18 +214,26 @@ impl MyClass {
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-java">
-public class MyClass {
-  private final int myField;
-
-  // constructor
-  public MyClass(final int field) {
-    this.myField = field;
+public static class GenericClass&lt;T&gt; {
+  private T t;
+  
+  public GenericClass(T t) {
+    this.t = t;
   }
+}
 
-  // destructor
-  finally { }
+public static &lt;T&gt; T do_nothing(T t) {
+  return t;
+}
 
-  // Java doesn&#39;t have friend functions
+public static void main(String[] args) {
+  GenericClass&lt;Integer&gt; gc_int
+    = new GenericClass&lt;&gt;(2);
+  GenericClass&lt;Float&gt; gc_float
+    = new GenericClass&lt;&gt;(2.3f);
+
+  int r1 = do_nothing(2);
+  float r2 = do_nothing(2.3f);
 }
 </code>
 </pre>
@@ -227,8 +244,9 @@ public class MyClass {
     <div class="col-xs-10 col-xs-offset-1 well">
         <p>
             
-C++ and Java classes (or structs for C++) are both fairly similar. Rust is quite different though.
-A struct defines the fields, and an implementation defines the methods for the struct.
+Rust's type system allows it to determine the types used in <code>GenericStruct</code>
+and <code>do_nothing</code> without needing to specify the exact type. Whereas in both C++ and Java
+types must be specified for the classes.
 
         </p>
     </div>
