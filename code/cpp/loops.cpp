@@ -17,8 +17,7 @@ int main(unused int argc, unused char **argv) {
 
 	int i=0;
 
-	while(true)
-	{
+	while(true)	{
 		cout << items[i] << endl;
 
 		if(++i == items_size)

@@ -11,7 +11,6 @@ MENU_ITEMS = [
     {'name': 'Parameters', 'page': {}},
     {'name': 'Methods', 'page': {}},
     {'name': 'Lambdas & Closures', 'page': {}},
-    {'name': 'Generics', 'page': {}},
 
     {'name': 'Control Flow', 'page': None},
     {'name': 'Branches', 'page': {}},
