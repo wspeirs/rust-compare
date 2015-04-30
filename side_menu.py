@@ -2,6 +2,7 @@
 MENU_ITEMS = [
     {'name': 'Data Types', 'page': None},
     {'name': 'Primitives', 'page': {'template': 'primitives.html', 'cpp': 'primitives.cpp', 'rust': 'primitives.rs', 'java': 'Primitives.java'}},
+    {'name': 'Constants', 'page': {}},
     {'name': 'Classes and Structs', 'page': {'template': 'class_struct.html', 'cpp': 'class_struct.cpp', 'rust': 'class_struct.rs', 'java': 'MyClass.java'}},
     {'name': 'Interfaces', 'page': {}},
     {'name': 'Enums', 'page': {}},
