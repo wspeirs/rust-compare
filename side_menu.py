@@ -4,7 +4,7 @@ MENU_ITEMS = [
     {'name': 'Primitives', 'page': {'template': 'primitives.html', 'cpp': 'primitives.cpp', 'rust': 'primitives.rs', 'java': 'Primitives.java'}},
     {'name': 'Constants', 'page': {}},
     {'name': 'Classes and Structs', 'page': {'template': 'class_struct.html', 'cpp': 'class_struct.cpp', 'rust': 'class_struct.rs', 'java': 'MyClass.java'}},
-    {'name': 'Interfaces', 'page': {}},
+    {'name': 'Interfaces', 'page': {'template': 'interfaces.html', 'cpp': 'interfaces.cpp', 'rust': 'interfaces.rs', 'java': 'Interfaces.java'}},
     {'name': 'Enums', 'page': {}},
     {'name': 'Generics', 'page': {'template': 'generics.html', 'cpp': 'generics.cpp', 'rust': 'generics.rs', 'java': 'Generics.java'}},
 

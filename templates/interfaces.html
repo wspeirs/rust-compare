@@ -1,0 +1,18 @@
+{% extends "_page.html" %}
+
+{% block intro %}
+Representations of intefaces for classes to implement.
+{% endblock %}
+
+{% block description %}
+C++ doesn't really have interfaces. Instead they are implemented by defining a base class
+where all methods are purely virtual. This is purely by convention and not implemented by
+the language.
+</p><p>
+On the other extreme is Java where an <code>Interface</code> is a formal construct. Classes can implement
+multiple interfaces, but only inherit from a single base class.
+</p><p>
+Rust is much more like Java with <code>trait</code>s that define methods classes can implement.
+</p>
+{% endblock %}
+
