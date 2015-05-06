@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Not Found</title>
+    <title>Enums</title>
 
     <meta name="description" content="A comparison of Rust to C++ and Java">
     <meta name="author" content="William Speirs">
@@ -138,18 +138,132 @@
             
 <div class="row">
     <div class="col-xs-12">
-        <h2>404 Not Found</h2>
-        <h4>This page was not found. This is probably because the code has not been written yet.
-            If you had expected to see a page here, make sure you've added it to the side_menu.py file.</h4>
+        <h2>Enums</h2>
+        <h4>
+            
+Representations of enumerations.
+
+        </h4>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-xs-12">
-        <h4>Example entry:</h4>
-        <pre>{'name': 'Primitives', 'page': {'template': 'primitives.html', 'cpp': 'primitives.cpp', 'rust': 'primitives.rs', 'java': 'Primitives.java'}},</pre>
+    <div class="col-xs-12 col-md-4"><h3>C++</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>Rust</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>Java</h3></div>
+</div>
+
+
+<div class="row">
+    <!-- CPP Code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-cpp">
+enum basic_enum {
+  option1 = 1,
+  option2
+};
+
+enum class char_enum : char {
+  optiona = &#39;a&#39;,
+  optionb
+};
+
+basic_enum e1 = option1;
+char_enum e2 = char_enum::optiona;
+
+if(e1 == option2)
+  e2 = char_enum::optionb;
+
+if(e2 == char_enum::optionb)
+  e1 = option2;
+
+</code>
+</pre>
     </div>
 
+    <!-- Rust code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-rust">
+enum BasicEnum {
+  Option1 = 1,
+  Option2
+}
+
+enum CharEnum {
+  OptionA(char),
+  OptionB(char)
+}
+
+let mut e1 = BasicEnum::Option1;
+let mut e2 = CharEnum::OptionA(&#39;a&#39;);
+
+match e1 {
+  BasicEnum::Option1 =&gt; e1 = BasicEnum::Option2,
+  _ =&gt; {},
+}
+
+match e2 {
+  CharEnum::OptionB(..) =&gt; e2 = CharEnum::OptionA(&#39;a&#39;),
+  _ =&gt; {}
+}
+</code>
+</pre>
+    </div>
+
+    <!-- Java code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-java">
+enum BasicEnum {
+  Option1,
+  Option2
+}
+
+enum CharEnum {
+  OptionA(&#39;a&#39;),
+  OptionB(&#39;b&#39;);
+
+  private char v;
+
+  CharEnum(char v) {
+    this.v = v;
+  }
+}
+
+public static void main(String[] args) {
+  BasicEnum e1 = BasicEnum.Option1;
+  CharEnum e2 = CharEnum.OptionA;
+
+  if(e1.equals(BasicEnum.Option2))
+    e2 = CharEnum.OptionB;
+
+  if(e2.equals(CharEnum.OptionB))
+    e1 = BasicEnum.Option2;
+}
+</code>
+</pre>
+    </div>
+</div>
+<br/><br/>
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 well">
+        <p>
+            
+C++ has two methods to represent an <code>enum</code>. Using <code>enum class</code> should be
+favored as it provides scoping.
+</p><p>
+Rust's <code>enum</code>s do not provide out-of-the-box equality testing, so <code>match</code>
+must be used instead. The use of <code>match</code> is helpful because it forces the checking
+of all options of the <code>enum</code>. Rust also provides a mechanism to capture an instance
+of a type for an option of an <code>enum</code>.
+</p><p>
+Java's <code>enum</code> is similar to C++ although you can define methods and a constructor.
+</p>
+
+        </p>
+    </div>
 </div>
 
 		</div>
