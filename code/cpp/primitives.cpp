@@ -22,6 +22,6 @@ int main(unused int argc, unused char **argv) {
     float l;
     double m;
 
-    return 0;
 // END_CODE
+    return 0;
 }

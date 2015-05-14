@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Not Found</title>
+    <title>Lambdas &amp; Closures</title>
 
     <meta name="description" content="A comparison of Rust to C++ and Java">
     <meta name="author" content="William Speirs">
@@ -138,18 +138,79 @@
             
 <div class="row">
     <div class="col-xs-12">
-        <h2>404 Not Found</h2>
-        <h4>This page was not found. This is probably because the code has not been written yet.
-            If you had expected to see a page here, make sure you've added it to the side_menu.py file.</h4>
+        <h2>Lambdas &amp; Closures</h2>
+        <h4>
+            
+Lambdas and closures.
+
+        </h4>
     </div>
 </div>
 
 <div class="row">
-    <div class="col-xs-12">
-        <h4>Example entry:</h4>
-        <pre>{'name': 'Primitives', 'page': {'template': 'primitives.html', 'cpp': 'primitives.cpp', 'rust': 'primitives.rs', 'java': 'Primitives.java'}},</pre>
+    <div class="col-xs-12 col-md-4"><h3>C++</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>Rust</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>Java</h3></div>
+</div>
+
+
+<div class="row">
+    <!-- CPP Code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-cpp">
+vector&lt;int&gt; vals = {-1, -2, -3, 1, 2, 3, 0};
+int p = 2;
+
+sort(vals.begin(),
+     vals.end(),
+     [p](int a, int b) {
+        return pow(a, p) &lt; pow(b, p);
+        });
+
+</code>
+</pre>
     </div>
 
+    <!-- Rust code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-rust">
+let mut vals = [-1, -2, -3, 1, 2, 3, 0];
+let p = 2;
+
+vals.sort_by(|a :&amp;isize, b :&amp;isize|
+                a.pow(p).cmp(&amp;b.pow(p)));
+
+</code>
+</pre>
+    </div>
+
+    <!-- Java code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-java">
+List&lt;Integer&gt; vals = Arrays.asList(-1, -2, -3, 0, 1, 2, 3);
+int p = 2;
+
+Collections.sort(vals, (a, b) -&gt; 
+        Integer.compare(Math.pow(a, p), Math.pow(b, p)));
+
+</code>
+</pre>
+    </div>
+</div>
+<br/><br/>
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 well">
+        <p>
+            
+Lambdas (and closures) were added to C++ in C++11 and to Java in Java 8. Rust has always had them.</p>
+<p>In C++ you are required to specify the values that are captured by the lambda. In Java and Rust the compiler handles
+capturing without specifying the values.
+
+        </p>
+    </div>
 </div>
 
 		</div>

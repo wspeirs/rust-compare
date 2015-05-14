@@ -11,7 +11,7 @@ MENU_ITEMS = [
     {'name': 'Functions', 'page': None},
     {'name': 'Parameters', 'page': {}},
     {'name': 'Methods', 'page': {}},
-    {'name': 'Lambdas & Closures', 'page': {}},
+    {'name': 'Lambdas & Closures', 'page': {'template': 'lambdas.html', 'cpp': 'lambda.cpp', 'rust': 'lambda.rs', 'java': 'Lambda.java'}},
 
     {'name': 'Control Flow', 'page': None},
     {'name': 'Branches', 'page': {}},
