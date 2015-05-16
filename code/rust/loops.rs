@@ -3,7 +3,7 @@ fn main() {
 	let items = [1, 2, 3];
 
 	for i in 0..items.len() {
-		println!(items[i]);
+		println(items[i]);
 	}
 
 	for i in items {

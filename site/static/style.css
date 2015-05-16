@@ -40,6 +40,7 @@ header p {
 
 ol, ul {
   list-style: none;
+  line-height: 1.25em;
 }
 
 #sidebar-left {
@@ -51,10 +52,14 @@ ol, ul {
 }
 
 .nav.main-menu > li > a {
-    padding-left: 40px;
     color: white;
     font-family: 'Inconsolata';
     font-size: 14pt;
+}
+
+.nav.main-menu > li > a:hover {
+    color: black;
+    background-color: inherit;
 }
 
 table {
@@ -66,5 +71,4 @@ td {
     font-weight: normal;
     vertical-align: middle;
 }
-
 
