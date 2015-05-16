@@ -88,7 +88,7 @@
                     
                 
                     
-                    <li><a href="not_found.html">Branches</a></li>
+                    <li><a href="branches.html">Branches</a></li>
                     
                 
                     
@@ -96,7 +96,7 @@
                     
                 
                     
-                    <li><a href="not_found.html">Exceptions</a></li>
+                    <li><a href="exceptions.html">Exceptions</a></li>
                     
                 
                     
@@ -185,20 +185,19 @@ do {
 let items = [1, 2, 3];
 
 for i in 0..items.len() {
-  println!(items[i]);
+  println!(&#34;{}&#34;, items[i]);
 }
 
-for i in items {
-  println(i);
-}
-
-let i = 0;
+let mut i = 0;
 
 loop {
-  println(items[i]);
-
-  if(++i==items.len())
+  println!(&#34;{}&#34;, items[i]);
+              
+              i += 1;
+              
+  if i == items.len() {
     break;
+              }
 }
 
 // Rust does not have do-while loops
@@ -243,7 +242,8 @@ do {
         <p>
             
 Loops in C++ and Java are essentially the same. Rust uses the keyword <code>in</code> for use in
-<code>for</code> loops. The keyword <code>loop</code> is also introduced for occations where the
+<code>for</code> loops. However, Rust cannot iterator over an array of values like C++ and Java.
+The keyword <code>loop</code> is also introduced for occations where the
 code will break inside of the loop after some condition is fulfilled.
 
         </p>

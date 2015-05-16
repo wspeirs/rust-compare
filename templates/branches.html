@@ -5,5 +5,14 @@ Branching in the three languages.
 {% endblock %}
 
 {% block description %}
+Basic <code>if-then-else</code> branches in all three languages are essentially the same. Where
+C++ and Java do not require <code>{ }</code> if there is only a single expression after the condition,
+Rust always requires a code block.</p>
+<p>
+Rust introduces pattern matching with the <code>match</code> keyword. It can be used much like
+<code>switch</code> in C++ or Java as shown.</p>
+<p>
+Rust also introduces <code>if let</code> expressions that allow you to set a variable based upon
+a condition being true or false.
 {% endblock %}
 

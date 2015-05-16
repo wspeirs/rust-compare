@@ -15,7 +15,7 @@ MENU_ITEMS = [
     {'name': 'Control Flow', 'page': None},
     {'name': 'Branches', 'page': {'template': 'branches.html', 'cpp': 'branches.cpp', 'rust': 'branches.rs', 'java': 'Branches.java'}},
     {'name': 'Loops', 'page': {'template': 'loops.html', 'cpp': 'loops.cpp', 'rust': 'loops.rs', 'java': 'Loops.java'}},
-    {'name': 'Exceptions', 'page': {}},
+    {'name': 'Exceptions', 'page': {'template': 'exceptions.html', 'cpp': 'exceptions.cpp', 'rust': 'exceptions.rs', 'java': 'Exceptions.java'}},
 
     {'name': 'Memory', 'page': None},
     {'name': 'Stack & Heap', 'page': {}},

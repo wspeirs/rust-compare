@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Interfaces</title>
+    <title>Branches</title>
 
     <meta name="description" content="A comparison of Rust to C++ and Java">
     <meta name="author" content="William Speirs">
@@ -130,10 +130,10 @@
             
 <div class="row">
     <div class="col-xs-12">
-        <h2>Interfaces</h2>
+        <h2>Branches</h2>
         <h4>
             
-Representations of intefaces for classes to implement.
+Branching in the three languages.
 
         </h4>
     </div>
@@ -151,17 +151,27 @@ Representations of intefaces for classes to implement.
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-cpp">
-class Interfaces {
-public:
-  virtual int my_method(int a) = 0;
-};
+const int var = 3;
 
-class Impl : public Interfaces {
-public:
-  virtual int my_method(int a) {
-    return a;
+  if(var &lt; 0) {
+      cout &lt;&lt; &#34;Var is &lt; 0&#34; &lt;&lt; endl;
+  } else if(var == 0) {
+      cout &lt;&lt; &#34;Var is 0&#34; &lt;&lt; endl;
+  } else {
+      cout &lt;&lt; &#34;Var is &gt; 0&#34; &lt;&lt; endl;
   }
-};
+
+  switch(var) {
+  case 1:
+      cout &lt;&lt; &#34;Var is 1&#34; &lt;&lt; endl;
+      break;
+  case 2:
+      cout &lt;&lt; &#34;Var is 2&#34; &lt;&lt; endl;
+      break;
+  default:
+      cout &lt;&lt; &#34;Var is unknown&#34; &lt;&lt; endl;
+  }
+
 </code>
 </pre>
     </div>
@@ -170,15 +180,25 @@ public:
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-rust">
-trait Interfaces {
-  fn my_method(a: isize) -&gt; isize;
+let var = 3;
+
+if var &lt; 0 {
+    println!(&#34;Var is &lt; 0&#34;);
+} else if var == 0 {
+    println!(&#34;Var is 0&#34;);
+} else {
+    println!(&#34;Var is &gt; 0&#34;);
 }
 
-impl Interfaces {
-  fn my_method(a: isize) -&gt; isize {
-    return a;
-  }
+let gt_0 = if var &gt; 0 { true } else { false };
+
+match var {
+    1 =&gt; println!(&#34;Var is 1&#34;),
+    2 =&gt; println!(&#34;Var is 2&#34;),
+    3 =&gt; println!(&#34;Var is 3&#34;),
+    _ =&gt; println!(&#34;Var is unknown&#34;),
 }
+
 </code>
 </pre>
     </div>
@@ -187,15 +207,30 @@ impl Interfaces {
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-java">
-public interface Interfaces {
-  public int my_method(int a);
-}
+final int var = 3;
 
-class Impl implements Interfaces {
-  public int my_method(int a) {
-    return a;
-  }
-}
+    if(var &lt; 0) {
+        System.out.println(&#34;Var is &lt; 0&#34;);
+    } else if(var == 0) {
+        System.out.println(&#34;Var is 0&#34;);
+    } else {
+        System.out.println(&#34;Var is &gt; 0&#34;);
+    }
+
+    switch(var) {
+    case 1:
+        System.out.println(&#34;Var is 1&#34;);
+        break;
+    case 2:
+        System.out.println(&#34;Var is 2&#34;);
+        break;
+    case 3:
+        System.out.println(&#34;Var is 3&#34;);
+        break;
+    default:
+        System.out.println(&#34;Var is unknown&#34;);
+    }
+
 </code>
 </pre>
     </div>
@@ -205,15 +240,15 @@ class Impl implements Interfaces {
     <div class="col-xs-10 col-xs-offset-1 well">
         <p>
             
-C++ doesn't really have interfaces. Instead they are implemented by defining a base class
-where all methods are purely virtual. This is purely by convention and not implemented by
-the language.
-</p><p>
-On the other extreme is Java where an <code>Interface</code> is a formal construct. Classes can implement
-multiple interfaces, but only inherit from a single base class.
-</p><p>
-Rust is much more like Java with <code>trait</code>s that define methods classes can implement.
-</p>
+Basic <code>if-then-else</code> branches in all three languages are essentially the same. Where
+C++ and Java do not require <code>{ }</code> if there is only a single expression after the condition,
+Rust always requires a code block.</p>
+<p>
+Rust introduces pattern matching with the <code>match</code> keyword. It can be used much like
+<code>switch</code> in C++ or Java as shown.</p>
+<p>
+Rust also introduces <code>if let</code> expressions that allow you to set a variable based upon
+a condition being true or false.
 
         </p>
     </div>

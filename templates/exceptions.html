@@ -1,0 +1,15 @@
+{% extends "_page.html" %}
+
+{% block intro %}
+Error handling in the three languages.
+{% endblock %}
+
+{% block description %}
+C++ and Java both have exception throwing and handling capabilities, Rust does not. Instead Rust
+handles errors through its return type, commonly using <code>Result&lt;T, E&gt;</code>. The <code>try-catch</code> is
+replaced with a match on <code>Ok</code> and <code>Err</code>.</p>
+<p>One should note that in Rust the <code>f64</code> primitive type was used everywhere; whereas in C++ and Java
+the respective compilers did not complain about the conversion from <code>int</code> to <code>double</code>. The Rust
+compiler would not allow similar code to compile.
+{% endblock %}
+
