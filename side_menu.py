@@ -13,7 +13,7 @@ MENU_ITEMS = [
     {'name': 'Lambdas & Closures', 'page': {'template': 'lambdas.html', 'cpp': 'lambda.cpp', 'rust': 'lambda.rs', 'java': 'Lambda.java'}},
 
     {'name': 'Control Flow', 'page': None},
-    {'name': 'Branches', 'page': {}},
+    {'name': 'Branches', 'page': {'template': 'branches.html', 'cpp': 'branches.cpp', 'rust': 'branches.rs', 'java': 'Branches.java'}},
     {'name': 'Loops', 'page': {'template': 'loops.html', 'cpp': 'loops.cpp', 'rust': 'loops.rs', 'java': 'Loops.java'}},
     {'name': 'Exceptions', 'page': {}},
 
