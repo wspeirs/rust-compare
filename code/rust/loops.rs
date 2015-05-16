@@ -3,20 +3,19 @@ fn main() {
 	let items = [1, 2, 3];
 
 	for i in 0..items.len() {
-		println(items[i]);
+		println!("{}", items[i]);
 	}
 
-	for i in items {
-		println(i);
-	}
-
-	let i = 0;
+	let mut i = 0;
 
 	loop {
-		println(items[i]);
-
-		if(++i==items.len())
+		println!("{}", items[i]);
+                
+                i += 1;
+                
+		if i == items.len() {
 			break;
+                }
 	}
 
 	// Rust does not have do-while loops

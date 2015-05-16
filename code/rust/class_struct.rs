@@ -1,11 +1,11 @@
 // BEGIN_CODE
 struct MyClass {
-	my_field: int
+	my_field: isize
 }
 
 impl MyClass {
 	// constructor, by convention
-	pub fn new(field: int) -> MyClass {
+	pub fn new(field: isize) -> MyClass {
 		MyClass { my_field: field }
 	}
 
