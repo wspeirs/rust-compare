@@ -13,7 +13,8 @@ fn main() {
 
     // sort the two
     v.sort();
-    //l.sort();
+    // unfortunately there is no way
+    // to directly sort a LinkedList
 
     // print them out
     for i in v.iter() {

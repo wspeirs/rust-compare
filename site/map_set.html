@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Interfaces</title>
+    <title>Set &amp; Map</title>
 
     <meta name="description" content="A comparison of Rust to C++ and Java">
     <meta name="author" content="William Speirs">
@@ -130,10 +130,10 @@
             
 <div class="row">
     <div class="col-xs-12">
-        <h2>Interfaces</h2>
+        <h2>Set &amp; Map</h2>
         <h4>
             
-Representations of intefaces for classes to implement.
+Maps and sets.
 
         </h4>
     </div>
@@ -151,17 +151,17 @@ Representations of intefaces for classes to implement.
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-cpp">
-class Interfaces {
-public:
-  virtual int my_method(int a) = 0;
-};
+map&lt;char, int&gt; m {{&#39;a&#39;, 5}, {&#39;b&#39;, 3}, {&#39;c&#39;, 1}};
+set&lt;int&gt; s = {9, 8, 7, 6};
 
-class Impl : public Interfaces {
-public:
-  virtual int my_method(int a) {
-    return a;
-  }
-};
+// inserts a new value for d
+m[&#39;d&#39;] = 7;
+
+// prints the value for d
+cout &lt;&lt; m[&#39;d&#39;] &lt;&lt; endl;
+
+// checks to see if 2 is in the set
+cout &lt;&lt; (s.find(2) == s.end()) &lt;&lt; endl;
 </code>
 </pre>
     </div>
@@ -170,15 +170,25 @@ public:
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-rust">
-trait Interfaces {
-  fn my_method(a: isize) -&gt; isize;
-}
+let mut m = HashMap::new();
+let mut s = HashSet::new();
 
-impl Interfaces {
-  fn my_method(a: isize) -&gt; isize {
-    return a;
-  }
-}
+  // all initialization is done the same way
+  m.insert(&#39;a&#39;, 5);
+  m.insert(&#39;b&#39;, 3);
+  m.insert(&#39;c&#39;, 1);
+  m.insert(&#39;d&#39;, 7);
+
+  s.insert(9);
+  s.insert(8);
+  s.insert(7);
+  s.insert(6);
+
+  // prints the value for d
+  println!(&#34;{}&#34;, m.get(&amp;&#39;d&#39;).unwrap());
+
+  // checks to see if 2 is in the set
+  println!(&#34;{}&#34;, s.contains(&amp;2));
 </code>
 </pre>
     </div>
@@ -187,15 +197,21 @@ impl Interfaces {
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-java">
-public interface Interfaces {
-  public int my_method(int a);
-}
+Map&lt;Character, Integer&gt; m = new HashMap&lt;&gt;();
+Set&lt;Integer&gt; s =
+    new HashSet&lt;&gt;(Arrays.asList(9, 8, 7, 6));
 
-class Impl implements Interfaces {
-  public int my_method(int a) {
-    return a;
-  }
-}
+// all initialization is done the same way
+m.put(&#39;a&#39;, 5);
+m.put(&#39;b&#39;, 3);
+m.put(&#39;c&#39;, 1);
+m.put(&#39;d&#39;, 7);
+
+// prints the value for d
+System.out.println(m.get(&#39;d&#39;));
+
+// checks to see if 2 is in the set
+System.out.println(s.contains(2));
 </code>
 </pre>
     </div>
@@ -205,15 +221,9 @@ class Impl implements Interfaces {
     <div class="col-xs-10 col-xs-offset-1 well">
         <p>
             
-C++ doesn't really have interfaces. Instead they are implemented by defining a base class
-where all methods are purely virtual. This is purely by convention and not implemented by
-the language.
-</p><p>
-On the other extreme is Java where an <code>Interface</code> is a formal construct. Classes can implement
-multiple interfaces, but only inherit from a single base class.
-</p><p>
-Rust is much more like Java with <code>trait</code>s that define methods classes can implement.
-</p>
+C++11 added brace-initialization to the language and greatly simplified the initialization of conainters. Rust does not
+supporty any type of initialization for <code>HashMap</code> or <code>HashSet</code>. Java does not provide any type of
+initialization for <code>Map</code>, but <code>Arrays.asList()</code> can be used for <code>Set</code>.
 
         </p>
     </div>

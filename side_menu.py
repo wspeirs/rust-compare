@@ -23,6 +23,6 @@ MENU_ITEMS = [
 
     {'name': 'Containers', 'page': None},
     {'name': 'Vector & List', 'page': {'template': 'vectors.html', 'cpp': 'vectors.cpp', 'rust': 'vectors.rs', 'java': 'Vectors.java'}},
-    {'name': 'Set & Map', 'page': {}},
+    {'name': 'Set & Map', 'page': {'template': 'map_set.html', 'cpp': 'map_set.cpp', 'rust': 'map_set.rs', 'java': 'MapSet.java'}},
 ]
 
