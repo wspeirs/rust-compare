@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Classes &amp; Structs</title>
+    <title>Vector/Array &amp; List</title>
 
     <meta name="description" content="A comparison of Rust to C++ and Java">
     <meta name="author" content="William Speirs">
@@ -130,10 +130,10 @@
             
 <div class="row">
     <div class="col-xs-12">
-        <h2>Classes &amp; Structs</h2>
+        <h2>Vector/Array &amp; List</h2>
         <h4>
             
-Representations of complex data types with methods that operate on them.
+Linear data structures.
 
         </h4>
     </div>
@@ -151,22 +151,16 @@ Representations of complex data types with methods that operate on them.
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-cpp">
-class MyClass {
-private:
-  const int my_field;
+vector&lt;int&gt; v = {5, 4, 3, 2, 1};
+list&lt;int&gt; l = {10, 9, 8, 7, 6};
 
-public:
-  // constructor
-  MyClass(const int &amp;field) : my_field(filed) { }
+// sort the two
+sort(v.begin(), v.end());
+l.sort(); // use container specific sort
 
-  // destructor
-  ~MyClass() { }
-
-  // friend functions
-  ostream&amp; operator&lt;&lt;(ostream &amp;out, const MyClass &amp;my_class) {
-    out &lt;&lt; my_field;
-  }
-}
+// print them out
+copy(v.begin(), v.end(), ostream_iterator&lt;int&gt;(cout, &#34;,&#34;));
+copy(l.begin(), l.end(), ostream_iterator&lt;int&gt;(cout, &#34;,&#34;));
 </code>
 </pre>
     </div>
@@ -175,20 +169,27 @@ public:
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-rust">
-struct MyClass {
-  my_field: isize
-}
+let v = vec![5, 4, 3, 2, 1];
+let mut l = LinkedList::new();
 
-impl MyClass {
-  // constructor, by convention
-  pub fn new(field: isize) -&gt; MyClass {
-    MyClass { my_field: field }
+  l.push_back(10);
+  l.push_back(9);
+  l.push_back(8);
+  l.push_back(7);
+  l.push_back(6);
+
+  // sort the two
+  v.sort();
+  //l.sort();
+
+  // print them out
+  for i in v.iter() {
+      print!(&#34;{},&#34;, i);
   }
 
-  // destructor
-  pub fn drop(&amp;self) {
+  for i in l.iter() {
+      print!(&#34;{},&#34;, i);
   }
-}
 </code>
 </pre>
     </div>
@@ -197,18 +198,24 @@ impl MyClass {
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-java">
-public class MyClass {
-  private final int myField;
+List&lt;Integer&gt; v =
+    new ArrayList&lt;&gt;(Arrays.asList(5, 4, 3, 2, 1));
+List&lt;Integer&gt; l =
+    new LinkedList&lt;&gt;(Arrays.asList(10, 9, 8, 7, 6));
 
-  // constructor
-  public MyClass(final int field) {
-    this.myField = field;
-  }
+// sort the two
+Collections.sort(v);
+Collections.sort(l);
 
-  // destructor
-  finally { }
+// print them out
+for(Integer i : v) {
+    System.out.print(i);
+    System.out.print(&#39;,&#39;);
+}
 
-  // Java doesn&#39;t have friend functions
+for(Integer i : l) {
+    System.out.print(i);
+    System.out.print(&#39;,&#39;);
 }
 </code>
 </pre>
@@ -219,8 +226,12 @@ public class MyClass {
     <div class="col-xs-10 col-xs-offset-1 well">
         <p>
             
-C++ and Java classes (or structs for C++) are both fairly similar. Rust is quite different though.
-A struct defines the fields, and an implementation defines the methods for the struct.
+C++11 added brace-initialization to the language and greatly simplified the initialization of conainters. Rust has this
+through a macro for <code>Vec</code>, but lacks it for <code>LinkedList</code>. Java does not provide any type of
+initialization. The easiest way is to leverage <code>Arrays.asList()</code>.</p>
+<p>Sorting is different accross the board. In Java a generic algorithm is used to operate on the two containers. In C++
+one container has a specialized method, while the other dose not. A generic algorithm can be used for both; however, it
+is always a good idea to use class methods when they are available.
 
         </p>
     </div>

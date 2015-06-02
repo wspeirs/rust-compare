@@ -22,7 +22,7 @@ MENU_ITEMS = [
     {'name': 'Aliasing', 'page': {}},
 
     {'name': 'Containers', 'page': None},
-    {'name': 'Vector/Array & List', 'page': {}},
+    {'name': 'Vector/Array & List', 'page': {'template': 'vectors.html', 'cpp': 'vectors.cpp', 'rust': 'vectors.rs', 'java': 'Vectors.java'}},
     {'name': 'Set & Map', 'page': {}},
 ]
 
