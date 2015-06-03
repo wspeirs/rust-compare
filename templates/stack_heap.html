@@ -1,0 +1,21 @@
+{% extends "_page.html" %}
+
+{% block intro %}
+How data is allocated on the stack and heap.
+{% endblock %}
+
+{% block description %}
+In C++ data is allocated on the stack unless the keyword <code>new</code> is used, then it is allocated on the heap. As
+seen in the examples you much call the appropriate version of <code>new</code> depending upon if an object or array is
+being allocated. Memory is freed from the stack when the variable goes out of scope. Heap allocated memory is freed when
+the <code>delete</code> keyword is called.</p>
+<p>
+In Rust to allocate memory on the heap, the <code>Box&lt;T&gt;</code> struct is used. When the variable assigned to a
+new <code>Box</code> goes out of scope, the memory in the box is freed.
+</p>
+<p>
+Java is very similar to C++ except that memory is freed via garbage collection instead of an explicit call to <code>delete</code>.
+Also, with Java there is only one version of <code>new</code> for both arrays and objects, but primitives cannot be allocated
+on the heap.
+{% endblock %}
+

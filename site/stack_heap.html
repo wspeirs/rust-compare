@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Not Found</title>
+    <title>Stack &amp; Heap</title>
 
     <meta name="description" content="A comparison of Rust to C++ and Java">
     <meta name="author" content="William Speirs">
@@ -135,18 +135,126 @@
             
 <div class="row">
     <div class="col-xs-12">
-        <h2>404 Not Found</h2>
-        <h4>This page was not found. This is probably because the code has not been written yet.
-            If you had expected to see a page here, make sure you've added it to the side_menu.py file.</h4>
+        <h2>Stack &amp; Heap</h2>
+        <h4>
+            
+How data is allocated on the stack and heap.
+
+        </h4>
     </div>
 </div>
 
+
 <div class="row">
-    <div class="col-xs-12">
-        <h4>Example entry:</h4>
-        <pre>{'name': 'Primitives', 'page': {'template': 'primitives.html', 'cpp': 'primitives.cpp', 'rust': 'primitives.rs', 'java': 'Primitives.java'}},</pre>
+    <div class="col-xs-12 col-md-4"><h3>C++</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>Rust</h3></div>
+    <div class="col-xs-12 col-md-4"><h3>Java</h3></div>
+</div>
+
+
+<div class="row">
+    <!-- CPP Code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-cpp">
+{
+    // single char allocated on the stack
+    char a = &#39;a&#39;;
+
+    // single char allocated on the heap
+    // char pointer allocated on the stack
+    char *b = new char(&#39;b&#39;);
+
+    // array of 23 chars allocated on the heap
+    // char pointer allocated on the stack
+    char *c = new char[23];
+
+
+    // heap allocated char is freed
+    delete b;
+
+    // heap allocated array is freed
+    delete[] c;
+}
+</code>
+</pre>
     </div>
 
+    <!-- Rust code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-rust">
+{
+    // single char allocated on the stack
+    let a: char = &#39;a&#39;;
+
+    // single char allocated on the heap
+    // 
+    let b = Box::new(&#39;b&#39;);
+
+    // array of 23 chars allocated on the heap
+    // char pointer allocated on the stack
+    let c = Box::new([&#39;c&#39;; 23]);
+
+    // heap allocated memory is freed when the
+    // variable goes out of scope
+    // however, you can force freeing by using
+    // the mem::drop method
+    mem::drop(b);
+    mem::drop(c);
+}
+</code>
+</pre>
+    </div>
+
+    <!-- Java code -->
+    <div class="col-xs-12 col-lg-4">
+<pre class="line-numbers">
+<code class="language-java">
+{
+    // single char allocated on the stack
+    char a = &#39;a&#39;;
+
+    // Character object allocated on the heap
+    // Character reference allocated on the stack
+    Character b = new Character(&#39;b&#39;);
+
+    // array of 23 chars allocated on the heap
+    // char reference allocated on the stack
+    char[] c = new char[23];
+
+    // no way to explicitly free memory in Java
+    // best we can do is set to null and wait for
+    // the garbage collector
+    b = null;
+    c = null;
+</code>
+</pre>
+    </div>
+</div>
+<br/><br/>
+
+
+
+<div class="row">
+    <div class="col-xs-10 col-xs-offset-1 well">
+        <p>
+            
+In C++ data is allocated on the stack unless the keyword <code>new</code> is used, then it is allocated on the heap. As
+seen in the examples you much call the appropriate version of <code>new</code> depending upon if an object or array is
+being allocated. Memory is freed from the stack when the variable goes out of scope. Heap allocated memory is freed when
+the <code>delete</code> keyword is called.</p>
+<p>
+In Rust to allocate memory on the heap, the <code>Box&lt;T&gt;</code> struct is used. When the variable assigned to a
+new <code>Box</code> goes out of scope, the memory in the box is freed.
+</p>
+<p>
+Java is very similar to C++ except that memory is freed via garbage collection instead of an explicit call to <code>delete</code>.
+Also, with Java there is only one version of <code>new</code> for both arrays and objects, but primitives cannot be allocated
+on the heap.
+
+        </p>
+    </div>
 </div>
 
 		</div>
