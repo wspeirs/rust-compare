@@ -1,70 +1,15 @@
-{% extends "_base.html" %}
+{% extends "_page.html" %}
 
-{% block content %}
-<div class="row">
-    <div class="col-xs-12">
-        <h2>Vectors</h2>
-        <h4>Vectors are contiguous blocks of memory that can be randomly accessed.</h4>
-    </div>
-</div>
+{% block intro %}
+Rust compare was built to compare three different "systems" programming languages: C++, Rust, and Java. Each section
+looks at a different feature of programming laugages and how each language handles this feature. Whenever possible all
+attempts where made to "do it the same way" across languages. The purpose is to highlight the differences
+and to show examples for each language. This site does not provide commentary on which language is "better" than another.
 
-<div class="row">
-    <div class="col-xs-12 col-md-4"><h3>Rust</h3></div>
-    <div class="col-xs-12 col-md-4"><h3>C++</h3></div>
-    <div class="col-xs-12 col-md-4"><h3>Java</h3></div>
-</div>
-
-<div class="row">
-    <div class="col-xs-12 col-md-4">
-<pre class="line-numbers">
-<code class="language-rust">
-fun main(argc int32) -> int32 {
-    // comment test
-    if(this->thing == this->other) {
-        printf("Test");
-    }
-}
-</code>
-</pre>
-    </div>
-
-    <div class="col-xs-12 col-md-4">
-<pre class="line-numbers">
-<code class="language-cpp">
-int void main(int argc, char **argv) {
-    // comment test
-    if(this->thing == this->other) {
-        printf("Test");
-    }
-}
-</code>
-</pre>
-    </div>
-
-    <div class="col-xs-12 col-md-4">
-<pre class="line-numbers">
-<code class="language-java">
-public static void main(String[] args) {
-    // comment test
-    if(this.thing == this.other) {
-        System.out.println("Test");
-    }
-}
-
-public static void main(String[] args) {
-    // comment test
-    if(this.thing == this.other) {
-        System.out.println("Test");
-    }
-}
-</code>
-</pre>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-        <p>This is some text explaining the whole thing...</p>
-    </div>
-</div>
 {% endblock %}
+
+{% block description %}
+This site is community driven. To add, remove, or update a section simply fork the repo on GitHub, make your changes,
+and submit a pull request.
+{% endblock %}
+

@@ -1,5 +1,6 @@
 # list of items to appear on the side menu, in order
 MENU_ITEMS = [
+    {'name': 'Home', 'page': {'template': 'index.html', 'cpp': None}},
     {'name': 'Data Types', 'page': None},
     {'name': 'Primitives', 'page': {'template': 'primitives.html', 'cpp': 'primitives.cpp', 'rust': 'primitives.rs', 'java': 'Primitives.java'}},
     {'name': 'Classes & Structs', 'page': {'template': 'class_struct.html', 'cpp': 'class_struct.cpp', 'rust': 'class_struct.rs', 'java': 'MyClass.java'}},

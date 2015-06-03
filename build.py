@@ -71,9 +71,16 @@ for item in MENU_ITEMS:
 
     template = env.get_template(page['template'])
 
-    cpp_code = read_code('code/cpp/' + page['cpp'])
-    java_code = read_code('code/java/' + page['java'])
-    rust_code = read_code('code/rust/' + page['rust'])
+    if page['cpp'] is None or \
+       page['java'] is None or \
+       page['rust'] is None:
+        cpp_code = ''
+        java_code = ''
+        rust_code = ''
+    else:
+        cpp_code = read_code('code/cpp/' + page['cpp'])
+        java_code = read_code('code/java/' + page['java'])
+        rust_code = read_code('code/rust/' + page['rust'])
 
     with open('site/' + page['template'], 'w') as f:
         f.writelines(template.render(page_title=item['name'],

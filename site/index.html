@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Branches</title>
+    <title>Home</title>
 
     <meta name="description" content="A comparison of Rust to C++ and Java">
     <meta name="author" content="William Speirs">
@@ -135,113 +135,19 @@
             
 <div class="row">
     <div class="col-xs-12">
-        <h2>Branches</h2>
+        <h2>Home</h2>
         <h4>
             
-Branching in the three languages.
+Rust compare was built to compare three different "systems" programming languages: C++, Rust, and Java. Each section
+looks at a different feature of programming laugages and how each language handles this feature. Whenever possible all
+attempts where made to "do it the same way" across languages. The purpose is to highlight the differences
+and to show examples for each language. This site does not provide commentary on which language is "better" than another.
+
 
         </h4>
     </div>
 </div>
 
-
-<div class="row">
-    <div class="col-xs-12 col-md-4"><h3>C++</h3></div>
-    <div class="col-xs-12 col-md-4"><h3>Rust</h3></div>
-    <div class="col-xs-12 col-md-4"><h3>Java</h3></div>
-</div>
-
-
-<div class="row">
-    <!-- CPP Code -->
-    <div class="col-xs-12 col-lg-4">
-<pre class="line-numbers">
-<code class="language-cpp">
-const int var = 3;
-
-  if(var &lt; 0) {
-      cout &lt;&lt; &#34;Var is &lt; 0&#34; &lt;&lt; endl;
-  } else if(var == 0) {
-      cout &lt;&lt; &#34;Var is 0&#34; &lt;&lt; endl;
-  } else {
-      cout &lt;&lt; &#34;Var is &gt; 0&#34; &lt;&lt; endl;
-  }
-
-  switch(var) {
-  case 1:
-      cout &lt;&lt; &#34;Var is 1&#34; &lt;&lt; endl;
-      break;
-  case 2:
-      cout &lt;&lt; &#34;Var is 2&#34; &lt;&lt; endl;
-      break;
-  default:
-      cout &lt;&lt; &#34;Var is unknown&#34; &lt;&lt; endl;
-  }
-
-</code>
-</pre>
-    </div>
-
-    <!-- Rust code -->
-    <div class="col-xs-12 col-lg-4">
-<pre class="line-numbers">
-<code class="language-rust">
-let var = 3;
-
-if var &lt; 0 {
-    println!(&#34;Var is &lt; 0&#34;);
-} else if var == 0 {
-    println!(&#34;Var is 0&#34;);
-} else {
-    println!(&#34;Var is &gt; 0&#34;);
-}
-
-let gt_0 = if var &gt; 0 { true } else { false };
-
-match var {
-    1 =&gt; println!(&#34;Var is 1&#34;),
-    2 =&gt; println!(&#34;Var is 2&#34;),
-    3 =&gt; println!(&#34;Var is 3&#34;),
-    _ =&gt; println!(&#34;Var is unknown&#34;),
-}
-
-</code>
-</pre>
-    </div>
-
-    <!-- Java code -->
-    <div class="col-xs-12 col-lg-4">
-<pre class="line-numbers">
-<code class="language-java">
-final int var = 3;
-
-    if(var &lt; 0) {
-        System.out.println(&#34;Var is &lt; 0&#34;);
-    } else if(var == 0) {
-        System.out.println(&#34;Var is 0&#34;);
-    } else {
-        System.out.println(&#34;Var is &gt; 0&#34;);
-    }
-
-    switch(var) {
-    case 1:
-        System.out.println(&#34;Var is 1&#34;);
-        break;
-    case 2:
-        System.out.println(&#34;Var is 2&#34;);
-        break;
-    case 3:
-        System.out.println(&#34;Var is 3&#34;);
-        break;
-    default:
-        System.out.println(&#34;Var is unknown&#34;);
-    }
-
-</code>
-</pre>
-    </div>
-</div>
-<br/><br/>
 
 
 
@@ -249,15 +155,8 @@ final int var = 3;
     <div class="col-xs-10 col-xs-offset-1 well">
         <p>
             
-Basic <code>if-then-else</code> branches in all three languages are essentially the same. Where
-C++ and Java do not require <code>{ }</code> if there is only a single expression after the condition,
-Rust always requires a code block.</p>
-<p>
-Rust introduces pattern matching with the <code>match</code> keyword. It can be used much like
-<code>switch</code> in C++ or Java as shown.</p>
-<p>
-Rust also introduces <code>if let</code> expressions that allow you to set a variable based upon
-a condition being true or false.
+This site is community driven. To add, remove, or update a section simply fork the repo on GitHub, make your changes,
+and submit a pull request.
 
         </p>
     </div>
