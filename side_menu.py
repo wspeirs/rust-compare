@@ -20,7 +20,7 @@ MENU_ITEMS = [
 
     {'name': 'Memory', 'page': None},
     {'name': 'Stack & Heap', 'page': {'template': 'stack_heap.html', 'cpp': 'stack_heap.cpp', 'rust': 'stack_heap.rs', 'java': 'StackHeap.java'}},
-    {'name': 'Pointers & References', 'page': {}},
+    {'name': 'Pointers & References', 'page': {'template': 'pointers.html', 'cpp': 'pointers.cpp', 'rust': 'pointers.rs', 'java': 'Pointers.java'}},
 
     {'name': 'Containers', 'page': None},
     {'name': 'Vector & List', 'page': {'template': 'vectors.html', 'cpp': 'vectors.cpp', 'rust': 'vectors.rs', 'java': 'Vectors.java'}},

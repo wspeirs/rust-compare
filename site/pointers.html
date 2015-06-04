@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Generics</title>
+    <title>Pointers &amp; References</title>
 
     <meta name="description" content="A comparison of Rust to C++ and Java">
     <meta name="author" content="William Speirs">
@@ -135,10 +135,10 @@
             
 <div class="row">
     <div class="col-xs-12">
-        <h2>Generics</h2>
+        <h2>Pointers &amp; References</h2>
         <h4>
             
-Generics (or templates) allow methods and classes to manipulate generic data types.
+The different types of pointers and references in the languages.
 
         </h4>
     </div>
@@ -157,27 +157,19 @@ Generics (or templates) allow methods and classes to manipulate generic data typ
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-cpp">
-template&lt;typename T&gt;
-class generic_class {
-  T t;
-public:
-  generic_class(const T &amp;t)
-    : t(t) { }
-};
+{
+    // memory freed when ptr_a goes out of scope
+    unique_ptr&lt;char&gt; ptr_a(new char(&#39;a&#39;));
 
-template&lt;typename T&gt;
-T do_nothing(const T &amp;t) {
-  return t;
-}
+    // reference counted pointer
+    shared_ptr&lt;char&gt; ptr_b(new char(&#39;b&#39;));
 
-int main(int argc, char **argv) {
-  generic_class&lt;int&gt; gc_int(2);
-  generic_class&lt;float&gt; gc_float(2.3);
+    // pointer that does not increase reference counts
+    weak_ptr&lt;char&gt; ptr_c = ptr_b;
 
-  int r1 = do_nothing(2);
-  float r2 = do_nothing(2.3);
-
-  return 0;
+    // memory freed when ptr_d goes out of scope
+    // differs from unique_ptr in copy semantics
+    auto_ptr&lt;char&gt; ptr_d(new char(&#39;d&#39;));
 }
 </code>
 </pre>
@@ -187,22 +179,19 @@ int main(int argc, char **argv) {
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-rust">
-#[allow(dead_code)]
-struct GenericStruct&lt;T&gt; {
-  t: T
-}
+{
+    // memory freed when ptr_a goes out of scope
+    let ptr_a = Box::new(&#39;a&#39;);
 
-fn do_nothing&lt;T&gt;(t: T) -&gt; T {
-  return t;
-}
+    // reference counted pointer
+    let ptr_b = Rc::new(&#39;b&#39;);
 
-#[allow(unused_variables)]
-fn main() {
-  let gc_int = GenericStruct{t: 2};
-  let gc_float = GenericStruct{t: 2.3};
+    // pointer that does not increase reference counts
+    let ptr_c = ptr_b.downgrade();
 
-  let r1 = do_nothing(2);
-  let r2 = do_nothing(2.3);
+    // atomically reference counted pointer
+    // can be safely used across threads
+    let ptr_e = Arc::new(&#39;e&#39;);
 }
 </code>
 </pre>
@@ -212,27 +201,16 @@ fn main() {
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-java">
-public static class GenericClass&lt;T&gt; {
-  private T t;
-  
-  public GenericClass(T t) {
-    this.t = t;
-  }
-}
+{
+    // normal garbage collected reference
+    Character ref = new Character(&#39;a&#39;);
 
-public static &lt;T&gt; T do_nothing(T t) {
-  return t;
-}
+    // reference that does not impact garbage collection
+    WeakReference&lt;Character&gt; ptr_c = new WeakReference&lt;&gt;(ref);
 
-public static void main(String[] args) {
-  GenericClass&lt;Integer&gt; gc_int
-    = new GenericClass&lt;&gt;(2);
-  GenericClass&lt;Float&gt; gc_float
-    = new GenericClass&lt;&gt;(2.3f);
+    // reference that is stronger than a weak reference
+    SoftReference&lt;Character&gt; ref_s = new SoftReference&lt;&gt;(ref);
 
-  int r1 = do_nothing(2);
-  float r2 = do_nothing(2.3f);
-}
 </code>
 </pre>
     </div>
@@ -245,9 +223,11 @@ public static void main(String[] args) {
     <div class="col-xs-10 col-xs-offset-1 well">
         <p>
             
-Rust's type system allows it to determine the types used in <code>GenericStruct</code>
-and <code>do_nothing</code> without needing to specify the exact type. Whereas in both C++ and Java
-types must be specified for the classes.
+<code>unique_ptr</code> and <code>auto_ptr</code> in C++ are both very similar to Rust's <code>Box</code>.</p>
+<p>
+All three languages have a concept of a weak pointer or reference that does not impact reference counting or garbage
+collection. Rust provides an atomic version that can be safely used across threads. Java provides a slightly stronger
+type of reference <code>SoftReference</code>.
 
         </p>
     </div>
