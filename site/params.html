@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Enums</title>
+    <title>Parameters</title>
 
     <meta name="description" content="A comparison of Rust to C++ and Java">
     <meta name="author" content="William Speirs">
@@ -131,10 +131,10 @@
             
 <div class="row">
     <div class="col-xs-12">
-        <h2>Enums</h2>
+        <h2>Parameters</h2>
         <h4>
             
-Representations of enumerations.
+Parameter passing.
 
         </h4>
     </div>
@@ -153,25 +153,34 @@ Representations of enumerations.
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-cpp">
-enum basic_enum {
-  option1 = 1,
-  option2
-};
+int multiply(int arg1, int &amp;arg2)
+{
+    int ret = arg1 * arg2;
 
-enum class char_enum : char {
-  optiona = &#39;a&#39;,
-  optionb
-};
+    arg1 = ret;
+    arg2 = ret;
 
-basic_enum e1 = option1;
-char_enum e2 = char_enum::optiona;
+    return ret;
+}
 
-if(e1 == option2)
-  e2 = char_enum::optionb;
+int main(unused int argc, unused char **argv)
+{
+    int arg1 = 2;
+    int arg2 = 3;
 
-if(e2 == char_enum::optionb)
-  e1 = option2;
+    int ret = multiply(arg1, arg2);
 
+    // prints 2 because it&#39;s passed by value
+    cout &lt;&lt; &#34;ARG1: &#34; &lt;&lt; arg1 &lt;&lt; endl;
+
+    // prints 6 because it&#39;s passed by reference
+    cout &lt;&lt; &#34;ARG2: &#34; &lt;&lt; arg2 &lt;&lt; endl;
+
+    // prints 6
+    cout &lt;&lt; &#34;RET: &#34; &lt;&lt; ret &lt;&lt; endl;
+
+    return 0;
+}
 </code>
 </pre>
     </div>
@@ -180,27 +189,31 @@ if(e2 == char_enum::optionb)
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-rust">
-enum BasicEnum {
-  Option1 = 1,
-  Option2
+fn multiply(mut arg1: isize, arg2: &amp;mut isize) -&gt; (isize)
+{
+    let ret = arg1 * *arg2;
+
+    arg1 = ret;
+    *arg2 = ret;
+
+    return ret;
 }
 
-enum CharEnum {
-  OptionA(char),
-  OptionB(char)
-}
+fn main()
+{
+    let arg1: isize = 2;
+    let mut arg2: isize = 3;
 
-let mut e1 = BasicEnum::Option1;
-let mut e2 = CharEnum::OptionA(&#39;a&#39;);
+    let ret = multiply(arg1, &amp;mut arg2);
 
-match e1 {
-  BasicEnum::Option1 =&gt; e1 = BasicEnum::Option2,
-  _ =&gt; {},
-}
+    // prints 2 because it&#39;s passed by value
+    println!(&#34;ARG1: {}&#34;, arg1);
 
-match e2 {
-  CharEnum::OptionB(..) =&gt; e2 = CharEnum::OptionA(&#39;a&#39;),
-  _ =&gt; {}
+    // prints 6 because it&#39;s passed by mutable reference
+    println!(&#34;ARG2: {}&#34;, arg2);
+
+    // prints 6
+    println!(&#34;RET: {}&#34;, ret);
 }
 </code>
 </pre>
@@ -210,32 +223,31 @@ match e2 {
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-java">
-enum BasicEnum {
-  Option1,
-  Option2
+public static int multiply(int arg1, int arg2)
+{
+    int ret = arg1 * arg2;
+
+    arg1 = ret;
+    arg2 = ret;
+
+    return ret;
 }
 
-enum CharEnum {
-  OptionA(&#39;a&#39;),
-  OptionB(&#39;b&#39;);
+blic static void main(String[] args)
+{
+    int arg1 = 2;
+    int arg2 = 3;
 
-  private char v;
+    int ret = multiply(arg1, arg2);
 
-  CharEnum(char v) {
-    this.v = v;
-  }
-}
+    // prints 2 because it&#39;s passed by value
+    System.out.println(&#34;ARG1: &#34; + arg1);
 
-public static void main(String[] args) {
-  BasicEnum e1 = BasicEnum.Option1;
-  CharEnum e2 = CharEnum.OptionA;
+    // prints 3 because it&#39;s passed by value
+    System.out.println(&#34;ARG2: &#34; + arg2);
 
-  if(e1.equals(BasicEnum.Option2))
-    e2 = CharEnum.OptionB;
-
-  if(e2.equals(CharEnum.OptionB))
-    e1 = BasicEnum.Option2;
-}
+    // prints 6
+    System.out.println(&#34;RET: &#34; + ret);
 </code>
 </pre>
     </div>
@@ -248,16 +260,20 @@ public static void main(String[] args) {
     <div class="col-xs-10 col-xs-offset-1 well">
         <p>
             
-C++ has two methods to represent an <code>enum</code>. Using <code>enum class</code> should be
-favored as it provides scoping.
-</p><p>
-Rust's <code>enum</code>s do not provide out-of-the-box equality testing, so <code>match</code>
-must be used instead. The use of <code>match</code> is helpful because it forces the checking
-of all options of the <code>enum</code>. Rust also provides a mechanism to capture an instance
-of a type for an option of an <code>enum</code>.
-</p><p>
-Java's <code>enum</code> is similar to C++ although you can define methods and a constructor.
+All three languages default to pass-by-value if not otherwise specified.</p>
+<p>
+C++ can specify a parameter as a reference, pointer, or pointer to a pointer. In this example, only pass-by-value and
+a reference is shown.</p>
+<p>
+With Rust you must specify the mutability of a parameter even though it is passed by value and cannot change. For example,
+if <code>arg1</code> isn't marked as <code>mut</code>, then the code will not compile as an attempt to change an immutable value is made.
+Even though it is marked as mutable, the value doesn't change because it's pass-by-value. The second parameter must be
+marked as both a reference (<code>&</code>) and mutable (<code>mut</code>) to be able to change it's value.
 </p>
+<p>
+With Java there is no way to change the value of a primitive like <code>int</code>. <code>Integer</code> is also immutable
+so it cannot be changed either. One "work-around" is to pass parameters via an array of size one. It is a reference to an
+array that is passed by value into the function, so the contents of the array can be modified.
 
         </p>
     </div>

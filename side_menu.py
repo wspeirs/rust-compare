@@ -9,8 +9,7 @@ MENU_ITEMS = [
     {'name': 'Generics', 'page': {'template': 'generics.html', 'cpp': 'generics.cpp', 'rust': 'generics.rs', 'java': 'Generics.java'}},
 
     {'name': 'Functions', 'page': None},
-    {'name': 'Parameters', 'page': {}},
-    {'name': 'Methods', 'page': {}},
+    {'name': 'Parameters', 'page': {'template': 'params.html', 'cpp': 'params.cpp', 'rust': 'params.rs', 'java': 'Params.java'}},
     {'name': 'Lambdas & Closures', 'page': {'template': 'lambdas.html', 'cpp': 'lambda.cpp', 'rust': 'lambda.rs', 'java': 'Lambda.java'}},
 
     {'name': 'Control Flow', 'page': None},

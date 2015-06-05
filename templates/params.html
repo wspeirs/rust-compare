@@ -1,0 +1,23 @@
+{% extends "_page.html" %}
+
+{% block intro %}
+Parameter passing.
+{% endblock %}
+
+{% block description %}
+All three languages default to pass-by-value if not otherwise specified.</p>
+<p>
+C++ can specify a parameter as a reference, pointer, or pointer to a pointer. In this example, only pass-by-value and
+a reference is shown.</p>
+<p>
+With Rust you must specify the mutability of a parameter even though it is passed by value and cannot change. For example,
+if <code>arg1</code> isn't marked as <code>mut</code>, then the code will not compile as an attempt to change an immutable value is made.
+Even though it is marked as mutable, the value doesn't change because it's pass-by-value. The second parameter must be
+marked as both a reference (<code>&</code>) and mutable (<code>mut</code>) to be able to change it's value.
+</p>
+<p>
+With Java there is no way to change the value of a primitive like <code>int</code>. <code>Integer</code> is also immutable
+so it cannot be changed either. One "work-around" is to pass parameters via an array of size one. It is a reference to an
+array that is passed by value into the function, so the contents of the array can be modified.
+{% endblock %}
+
