@@ -5,7 +5,8 @@ The different types of pointers and references in the languages.
 {% endblock %}
 
 {% block description %}
-<code>unique_ptr</code> and <code>auto_ptr</code> in C++ are both very similar to Rust's <code>Box</code>.</p>
+<code>unique_ptr</code> and <code>auto_ptr</code> in C++ are both very similar to Rust's <code>Box</code>. <code>make_shared<T>()</code>
+can also be used to generate shared pointers in C++.</p>
 <p>
 All three languages have a concept of a weak pointer or reference that does not impact reference counting or garbage
 collection. Rust provides an atomic version that can be safely used across threads. Java provides a slightly stronger
