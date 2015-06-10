@@ -180,27 +180,27 @@ if(e2 == char_enum::optionb)
     <div class="col-xs-12 col-lg-4">
 <pre class="line-numbers">
 <code class="language-rust">
+#[derive(PartialEq, Eq)]
 enum BasicEnum {
-  Option1 = 1,
-  Option2
+    Option1 = 1,
+    Option2
 }
 
 enum CharEnum {
-  OptionA(char),
-  OptionB(char)
+    OptionA(char),
+    OptionB(char)
 }
 
 let mut e1 = BasicEnum::Option1;
 let mut e2 = CharEnum::OptionA(&#39;a&#39;);
 
-match e1 {
-  BasicEnum::Option1 =&gt; e1 = BasicEnum::Option2,
-  _ =&gt; {},
+if e1 == BasicEnum::Option2 {
+    e2 = CharEnum::OptionB(&#39;b&#39;);
 }
 
 match e2 {
-  CharEnum::OptionB(..) =&gt; e2 = CharEnum::OptionA(&#39;a&#39;),
-  _ =&gt; {}
+    CharEnum::OptionB(..) =&gt; e1 = BasicEnum::Option2,
+    _ =&gt; {}
 }
 </code>
 </pre>
@@ -251,8 +251,8 @@ public static void main(String[] args) {
 C++ has two methods to represent an <code>enum</code>. Using <code>enum class</code> should be
 favored as it provides scoping.
 </p><p>
-Rust's <code>enum</code>s do not provide out-of-the-box equality testing, so <code>match</code>
-must be used instead. The use of <code>match</code> is helpful because it forces the checking
+Rust's <code>enum</code>s provides equality testing by adding <code>#[derive(PartialEq, Eq)]</code>
+to the <code>enum</code>. The use of <code>match</code> is helpful because it forces the checking
 of all options of the <code>enum</code>. Rust also provides a mechanism to capture an instance
 of a type for an option of an <code>enum</code>.
 </p><p>

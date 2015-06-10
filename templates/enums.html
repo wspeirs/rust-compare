@@ -8,8 +8,8 @@ Representations of enumerations.
 C++ has two methods to represent an <code>enum</code>. Using <code>enum class</code> should be
 favored as it provides scoping.
 </p><p>
-Rust's <code>enum</code>s do not provide out-of-the-box equality testing, so <code>match</code>
-must be used instead. The use of <code>match</code> is helpful because it forces the checking
+Rust's <code>enum</code>s provides equality testing by adding <code>#[derive(PartialEq, Eq)]</code>
+to the <code>enum</code>. The use of <code>match</code> is helpful because it forces the checking
 of all options of the <code>enum</code>. Rust also provides a mechanism to capture an instance
 of a type for an option of an <code>enum</code>.
 </p><p>

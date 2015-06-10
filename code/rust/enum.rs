@@ -3,27 +3,27 @@
 #[allow(dead_code)]
 fn main() {
 // BEGIN_CODE
-	enum BasicEnum {
-		Option1 = 1,
-		Option2
-	}
+    #[derive(PartialEq, Eq)]
+    enum BasicEnum {
+        Option1 = 1,
+        Option2
+    }
 
-	enum CharEnum {
-		OptionA(char),
-		OptionB(char)
-	}
+    enum CharEnum {
+        OptionA(char),
+        OptionB(char)
+    }
 
-	let mut e1 = BasicEnum::Option1;
-	let mut e2 = CharEnum::OptionA('a');
+    let mut e1 = BasicEnum::Option1;
+    let mut e2 = CharEnum::OptionA('a');
 
-	match e1 {
-		BasicEnum::Option1 => e1 = BasicEnum::Option2,
-		_ => {},
-	}
+    if e1 == BasicEnum::Option2 {
+        e2 = CharEnum::OptionB('b');
+    }
 
-	match e2 {
-		CharEnum::OptionB(..) => e2 = CharEnum::OptionA('a'),
-		_ => {}
-	}
+    match e2 {
+        CharEnum::OptionB(..) => e1 = BasicEnum::Option2,
+        _ => {}
+    }
 // END_CODE
 }

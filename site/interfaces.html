@@ -173,13 +173,16 @@ public:
 <pre class="line-numbers">
 <code class="language-rust">
 trait Interfaces {
-  fn my_method(a: isize) -&gt; isize;
+    fn my_method(a: isize) -&gt; isize;
 }
 
-impl Interfaces {
-  fn my_method(a: isize) -&gt; isize {
-    return a;
-  }
+#[allow(dead_code)]
+struct Impl;
+
+impl Interfaces for Impl {
+    fn my_method(a: isize) -&gt; isize {
+        return a;
+    }
 }
 </code>
 </pre>
