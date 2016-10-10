@@ -8,9 +8,11 @@ impl MyClass {
 	pub fn new(field: isize) -> MyClass {
 		MyClass { my_field: field }
 	}
+}
 
+impl Drop for MyClass {
 	// destructor
-	pub fn drop(&self) {
+	fn drop(&mut self) {
 	}
 }
 // END_CODE
