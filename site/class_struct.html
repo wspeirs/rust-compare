@@ -186,9 +186,11 @@ impl MyClass {
   pub fn new(field: isize) -&gt; MyClass {
     MyClass { my_field: field }
   }
+}
 
+impl Drop for MyClass {
   // destructor
-  pub fn drop(&amp;self) {
+  fn drop(&amp;mut self) {
   }
 }
 </code>
