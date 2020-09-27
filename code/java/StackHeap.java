@@ -1,5 +1,5 @@
 public class StackHeap {
-	public static void main(String[] args)
+    public static void main(String[] args)
 // BEGIN_CODE
     {
         // single char allocated on the stack
@@ -18,6 +18,6 @@ public class StackHeap {
         // the garbage collector
         b = null;
         c = null;
-	}
+    }
 // END_CODE
 }
