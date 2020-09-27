@@ -1,4 +1,3 @@
-
 public class Params {
 // BEGIN_CODE
     public static int multiply(int arg1, int arg2)
@@ -11,7 +10,7 @@ public class Params {
         return ret;
     }
 
-	public static void main(String[] args)
+    public static void main(String[] args)
     {
         int arg1 = 2;
         int arg2 = 3;
@@ -29,3 +28,4 @@ public class Params {
 	}
 // END_CODE
 }
+

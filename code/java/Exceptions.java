@@ -9,7 +9,7 @@ public class Exceptions {
         return n/d;
     }
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         try {
             System.out.println(safe_div(1, 0));
         } catch(IllegalArgumentException err) {
